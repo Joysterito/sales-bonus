@@ -144,6 +144,7 @@ function analyzeSalesData(data, options) {
 });
     // @TODO: Подготовка итоговой коллекции с нужными полями
 
+    console.log(sellerStats);
 
     return sellerStats.map((seller) => ({
         seller_id: seller.id,// Строка, идентификатор продавца
