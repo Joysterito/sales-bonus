@@ -115,7 +115,7 @@ function analyzeSalesData(data, options) {
                 seller.products_sold[item.sku] = 0;
             }
             // По артикулу товара увеличить его проданное количество у продавца
-            seller.products_sold[item.sku] += 1;
+            seller.products_sold[item.sku] += item.quantity;
         });
  });
 
@@ -128,7 +128,6 @@ function analyzeSalesData(data, options) {
     sellerStats.forEach((seller, index) => {
         // Считаем бонус
         seller.bonus = calculateBonus(index, sellerStats.length, seller);
-
         // Формируем топ-10 товаров
         seller.top_products = Object.entries(seller.products_sold)
             .map((item) => {
